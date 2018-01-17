@@ -10,6 +10,7 @@ def choisir_mot(nom_fichier):
 
 def mot_etoiles(mot, letters):
     sWord = "\n"
+    print(mot)
     for c in mot:
         if c in letters:
             sWord+=(c)
@@ -46,9 +47,22 @@ def gameEnd(lettre, gagne, mot, score):
     print("La partie est ",state)
     print(extraMsg)
 
+    if (score>=3):
+        saveScore(score)
+
 def askNG():
     choice = input("Voulez-vous rejouer ? (Y/N)")
     if (choice.upper() not in ("Y","N")):
         print("Je n'ai pas bien compris... Merci de répéter")
         askNG()
     return (choice.upper()=="Y")
+
+def saveScore(score):
+    res = ""
+    while (res.upper() not in ("Y", "N")):
+        res = input("Voulez vous enregistrer votre score ? (Y/N) ")
+    if (res.upper()=="Y"):
+        name = input("Entrez votre nom ici : ")
+        mFirebaseApp = firebase.FirebaseApplication("https://pendu-fdc2e.firebaseio.com/", None)
+        post = mFirebaseApp.put("/users",name,score)
+        print (post)

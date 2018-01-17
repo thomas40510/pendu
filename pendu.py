@@ -40,16 +40,18 @@ def showScores():
     print('LEADERBOARD'.center(size.columns, '*'))
     leaderboard = mFirebaseApp.get("/users", None)
     for i in range(6,2,-1):
-        print("Ont un score de ",i," : ")
+        print("Ont un score de ",i," : \n")
         l=[]
         for s in leaderboard:
             if leaderboard.get(s)==i:
-                l.append(s+"\n")
+                l.append("- "+s)
         if (l!=[]):
             for c in l:
                 print(c)
+            print("\n")
         else :
             print("None \n")
+
     print("\n")
     print(' Press any key to continue... '.center(size.columns, '*'))
     input('')
@@ -70,8 +72,7 @@ def play(score,letters):
             hm.gameEnd(c,False,mot,score)
             if (hm.askNG()):
                 init()
-            else :
-                exit()
+            Menu()
     print(hm.mot_etoiles(mot, letters))
     play(score,letters)
 
