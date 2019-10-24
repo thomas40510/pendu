@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['pendu.py', 'pendu_fonctions.py', 'drawhm.py'],
-             pathex=['C:\\Users\\thoma\\OneDrive\\Documents\\GitHub\\pendu'],
+             pathex=['C:\\Users\\thoma\\Desktop\\pendu'],
              binaries=[],
              datas=[],
              hiddenimports=[],
