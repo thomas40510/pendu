@@ -21,7 +21,7 @@ def mot_etoiles(mot, letters):
 def entrer_lettre():
     c=""
     while (len(c)!=1 and c!="quitter"):
-        c= input("entrer une lettre : ")
+        c= input("Entrer une lettre : ")
 
     if (c=="quitter"):
         exit()
@@ -36,15 +36,15 @@ def mot_trouve(mot, letters):
 
 def gameEnd(lettre, gagne, mot, score):
     if (lettre=="quitter"):
-        state="interrompue par l'utilisateur"
+        state="interrompue par l'utilisateur..."
     elif (gagne):
-        state="gagnée"
-        extraMsg = ("Il vous restait ", score, " essais.")
+        state="gagnée !"
+        extraMsg = ("Il vous restait " + score + " essais.")
     else :
-        state="perdue"
+        state="perdue..."
         extraMsg = "Le mot était "+"\'"+mot+"\'."
 
-    print("La partie est ",state)
+    print("La partie est "+state)
     print(extraMsg)
 
     if (score>=3):
